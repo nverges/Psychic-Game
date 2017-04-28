@@ -34,14 +34,24 @@
 	
 		
 		document.onkeyup = function() {
+
+		var reset = function() {
+			guessesLeft = 9;
+
+		}
+
+		var computerGuess = options[Math.floor(Math.random()*options.length)];
+
+			
+
 			userGuess = String.fromCharCode(event.keyCode).toLowerCase();
+
 
 
 					if (userGuess == computerGuess) {
 						wins++;
 						alert("You win!");
-						guessesLeft= 9;
-
+						reset();
 
 					} else {
 						guessesLeft--;
@@ -52,10 +62,17 @@
 						losses ++;	
 						// wins= 0;
 						guessesLeft= 9;
+						letterChosen = [];
 					}	
-	
-			  
 
+			// pushes userGuess values into the empty array letterChosen
+			userGuess = event.key;
+			letterChosen.push(userGuess);
+
+
+
+
+			// Debugging
 				console.log(computerGuess);
 				console.log(userGuess);
 
@@ -67,7 +84,7 @@
 			"<p>wins:  " + wins + "</p>" +
 			"<p>losses: " + losses + "</p>" +
 			"<p>guesses left: " + guessesLeft + "</p>" +
-			"<p>your guesses: " + userGuess + "</p>";
+			"<p>your guesses: " + letterChosen.join('  ') + "</p>";
 
 			document.querySelector('#game').innerHTML = html;
 			// targets the div "game" that we put the original paragraph inside of in order to display the html

@@ -57,7 +57,7 @@
 						wins++;
 						alert("The correct choice was " + userGuess + "!" + " You win!");
 						reset();
-
+						letterChosen = [];
 
 						// var computerGuess = options[Math.floor(Math.random()*options.length)];
 
@@ -70,6 +70,7 @@
 						losses ++;	
 						alert("You lose. Loser.");
 						reset();
+			
 					}	
 
 			// pushes userGuess values into the empty array letterChosen
@@ -83,6 +84,9 @@
 
 
 		////// HTML /////////////////////////////////////////////////////////
+
+
+		document.getElementbyID()
 
 			// Creates a variable called html that will embed the score on the page upon activating wins, losses, and ties
 			var html ="<p><h1>The Psychic Game</h1></p>" +
